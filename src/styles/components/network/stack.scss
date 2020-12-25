@@ -1,0 +1,199 @@
+@include block(network_stack) {
+  background-color: #031928;
+  border-top: 1px solid #031928;
+
+  @include breakpoint(large up) {
+    padding: 8em 0;
+  }
+
+  @include breakpoint(large down) {
+    padding: 4em 0;
+  }
+
+  @include block(title) {
+    font-size: 1.875em;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.02px;
+    text-align: center;
+    color: #ffffff;
+    z-index: 1;
+
+    @include breakpoint(large up) {
+      margin: 4em 0 2em;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    @include breakpoint(large down) {
+      font-size: 1.8em;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  @include block(floors) {
+    width: 100%;
+
+    @include element(item) {
+      @include block(content) {
+        @include breakpoint(medium down) {
+          order: 2;
+        }
+
+        @include block(image) {
+          > img {
+            margin-left: -0.9em;
+            width: 86px;
+          }
+        }
+
+        @include element(text) {
+          font-size: 1.125em;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.39;
+          letter-spacing: normal;
+          color: #9eb3c0;
+
+          > span:first-child {
+            font-weight: bold;
+            color: #ffffff;
+          }
+
+          > span:not(:first-child) {
+            font-weight: 300;
+            color: #ffffff;
+          }
+        }
+      }
+
+      @include block(dots) {
+        > img {
+          margin-top: 1em;
+        }
+
+        @include breakpoint(medium down) {
+          display: none;
+        }
+      }
+
+      @include block(animation) {
+        @include breakpoint(medium up) {
+          > div {
+            > svg {
+              transform: translate3d(37px, 0px, 0px) !important;
+            }
+          }
+        }
+
+        @include breakpoint(medium down) {
+          order: 1;
+          margin-top: 2em;
+        }
+      }
+    }
+  }
+}
+
+@include block(sign_for_updates) {
+  margin: 3em 20px 5em;
+  @include element(title) {
+    font-size: 2.5em;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #4a687b;
+    margin-bottom: 1em;
+  }
+
+  @include block(text) {
+    font-size: 1.125em;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.01px;
+    text-align: center;
+    color: #868686;
+    margin-bottom: 3em;
+  }
+
+  @include block(form) {
+    position: relative;
+    @include block(title) {
+      font-size: 1.1em;
+      font-weight: 500;
+      color: #4a687b;
+      margin-bottom: 0.4em;
+      position: absolute;
+      top: -2em;
+    }
+    @include xy-grid(horizontal, false);
+
+    @include breakpoint(medium down) {
+      @include xy-grid();
+    }
+    @include element(input) {
+      @include xy-cell(16, null, 0);
+      padding: 10px;
+      @include breakpoint(large) {
+        min-width: 300px;
+      }
+      height: 54px;
+      border-radius: 10px;
+      border: solid 1px #e5eff5;
+      background-color: #e5eff5;
+      font-size: 18px;
+      color: #052235;
+      border: 1.5px solid transparent;
+
+      @include breakpoint(medium down) {
+        @include xy-cell(24, null, 0);
+      }
+
+      &:focus {
+        border: 1.5px solid #ccd9e0;
+      }
+
+      &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+    }
+
+    @include block(error) {
+      position: absolute;
+      bottom: -1.5em;
+      color: red;
+    }
+
+    @include element(button) {
+      @include xy-cell(6, null, 0);
+      @include breakpoint(medium up) {
+        max-width: 105px;
+      }
+      @include breakpoint(medium down) {
+        @include xy-cell(24, null, 0);
+        margin-top: 2em;
+      }
+      padding: 18px;
+      margin-left: 1em;
+      border-radius: 10px;
+      background: $color-fuse_gradient;
+
+      &:hover {
+        background: #fae83e;
+        cursor: pointer;
+      }
+
+      &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
